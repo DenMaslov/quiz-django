@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+
+{% block title %}Tests{% endblock title %}
+
+{% block content %}
+        <div class="row" style="margin-bottom: 25px; margin-top: 10vh;">
+        {% for test in test_list %}
+        {%  if forloop.counter|divisibleby:3 %}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; margin-left: 25px; margin-bottom: 5vh;text-align: left;">
+              <img class="card-img-top" src="{{test.image_src}}" alt="Card image cap" style = "max-height: 15rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ test.title }}</h5>
+                <p class="card-text">{{ test.description|truncatechars:50 }}</p>
+                <p class="card-text data__text">Created: {{ test.created_at}}</p>
+                <a href="/{{ test.id }}/" class="btn btn-primary">Start...</a>
+                <a href="{% url 'history' test.id %}" class="btn btn-dark">History</a>
+              </div>
+            </div>
+        </div>
+        </div>
+        {% if not forloop.last %}
+        <div class="row " style="margin-bottom: 25px">
+        {% endif %}
+        {% else %}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; margin-left: 25px; margin-bottom: 5vh; text-align: left;">
+              <img class="card-img-top" src="{{test.image_src}}" alt="Card image cap" style = "max-height: 15rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ test.title }}</h5>
+                <p class="card-text">{{ test.description|truncatechars:50 }}</p>
+                <p class="card-text data__text">Created: {{ test.created_at}}</p>
+                <a href="/{{ test.id }}/" class="btn btn-primary">Start...</a>
+                <a href="{% url 'history' test.id %}" class="btn btn-dark">History</a>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock content %}

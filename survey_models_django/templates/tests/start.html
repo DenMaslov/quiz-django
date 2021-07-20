@@ -1,0 +1,31 @@
+{% extends '_base.html' %}
+
+{% block title %}{{test.title}}{% endblock title %}
+
+{% block content %}
+<div class="container">
+<h1 class="post__title">{{test.title}}</h1>
+<p class="lead">
+    Description: {{test.description}}
+</p>
+<div>
+    <form method="POST">
+    {% for question in test.questions.all %}
+    <div class = "alert alert-primary" role="alert" style="font-size: 22px;">
+        Question {{forloop.counter}}:  {{question.text}}
+    </div>
+    <div class="start__input">
+            {% csrf_token %}
+            {% for option in question.options.all %}
+            <div style="display: flex; flex-direction: row; ">
+                <input style="margin-top: 10px;" type="radio" value="{{option.id}}" name='{{question.id}}' id='{{question.id}}'/>
+                <label for='{{question.id}}' class="option__start" >{{option.text}}</label>
+            </div>
+            {% endfor %}
+            <hr/>
+    </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-dark glow" value = "Finish" style="margin-bottom: 100px;"/>
+    </form>
+</div>
+{% endblock content %}

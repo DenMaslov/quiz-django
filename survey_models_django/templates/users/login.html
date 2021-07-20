@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+{% block title %}{{test.title}}{% endblock title %}
+
+{% block content %}
+<div class="body__reg">
+    <form method="POST">
+        <h1>Sign in</h1><br/>
+        {% csrf_token %}
+        <div class="Reg">
+            <span class="fontawesome-user"></span><input type="text"     name="username" id="username" class="input__reg " required placeholder="Username" autocomplete="off"> 
+            <span class="fontawesome-lock"></span><input type="password" name="password" id="password" class="input__reg password__input" required placeholder="Password" autocomplete="off"> 
+            <input type="submit" value="Sign up" title="Sign in">
+        </div>
+    </form>
+    {% if error %}
+    <div class = "alert alert-danger" style="margin-top: 10px; text-align: center;" role="alert">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}
+
+
+

@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+
+{% block title %}{{test.user}}{% endblock title %}
+
+{% block content %}
+<table>
+    <tr>
+      <th colspan="2">Test</th>
+      <th>User</th>
+      <th>Points</th>
+      <th>Finished at</th>
+    </tr>
+{% for session in testrun_list %}
+<tr>
+    <td style="border-bottom: 2px solid #56433D;"><img src={{session.test.image_src}} style="max-width: 200px;max-height: 200px;"></td>
+    <td style="border: 2px solid #56433D; border-left: none;">{{session.test.title}}</td>
+    <td style="border: 2px solid #56433D;">{{session.user}}</td>
+    <td style="border: 2px solid #56433D;">{{session.points}}</td>
+    <td style="border: 2px solid #56433D;">{{session.finished_at}}</td>
+  </tr>
+  
+{% endfor %}
+</table>
+{% endblock content %}

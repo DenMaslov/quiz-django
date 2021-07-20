@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block title %}{{test.title}}{% endblock title %}
+
+{% block content %}
+<div class="container">
+<h1 class="post__title">{{test.title}}</h1>
+<p class="lead">
+    Description: {{test.description}}
+</p>
+<p class="lead">
+    Created: {{test.created_at}}
+</p>
+<a href="{% url 'start' test.id %}" type="button" class="btn btn-dark glow" style="margin-bottom: 5vh;">START</a>
+<hr/>
+<div>
+    {% for question in test.questions.all %}
+    <div class = "alert alert-primary" role="alert">
+        Question {{forloop.counter}}:  {{question.text}}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

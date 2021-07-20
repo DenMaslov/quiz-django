@@ -1,0 +1,42 @@
+table {
+    border-spacing: 0 200px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+th {
+    padding: 10px 20px;
+    background: #110f0e;
+    color: #eeeade;
+    border-right: 2px solid;
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+
+th:first-child {
+    text-align: left;
+    
+}
+
+th:last-child {
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 24px;
+    text-align: center;
+    border-top: 2px solid #56433D;
+    border-bottom: 2px solid #56433D;
+    border-right: 2px solid #56433D;
+}
+
+td:first-child {
+    border-left: 2px solid #56433D;
+    border-right: none;
+}
+
+td:nth-child(2) {
+    text-align: left;
+}

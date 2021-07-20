@@ -1,0 +1,119 @@
+/* 
+Author: @mrjopino
+Name: Design Register
+Description: Design register crazy!
+*/
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/css?family=Titan+One);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
+
+.body__reg {
+
+  text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+  margin-left: 30px;
+}
+
+.input__reg {
+	font-size: 1em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: 0;
+	-webkit-appearance: none;
+}
+
+.Reg {
+	margin: 50px auto;
+	width: 242px;
+}
+
+.Reg span {
+	color: hsl(5, 50%, 57%);
+	display: block;
+	height: 48px;
+	line-height: 48px;
+	position: absolute;
+	text-align: center;
+    margin-top: 20px;
+	width: 36px;
+}
+
+.Reg span:first-child {
+    margin-top: 0px;
+}
+
+.Reg input {
+	/* border: none; */
+	height: 48px;
+	/* outline: none; */
+}
+
+.Reg input[type="text"] {
+	background-color: #fff;
+	border-top: 2px solid #2c90c6;
+	border-right: 1px solid #000;
+	border-left: 1px solid #000;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+	color: #363636;
+	padding-left: 36px;
+	width: 204px;
+}
+
+.password__input {
+	background-color: #fff;
+	border-top: 2px solid #2c90c6;
+	border-right: 1px solid #000;
+	border-bottom: 2px solid #2c90c6;
+	border-left: 1px solid #000;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+	color: #363636;
+	margin-top: 20px;
+	padding-left: 36px;
+	width: 204px;
+}
+
+.password__input:last-child {
+    margin-bottom: 40px;
+}
+
+.Reg input[type="submit"] {
+	background-color: #2c90c6;
+	border: 1px solid #2c90c6;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 48px;
+	text-align: center;
+    margin-top: 30px;
+	text-transform: uppercase;
+	width: 240px;
+}
+
+.Reg input[type="submit"]:hover {
+	background-color: #2c70c6;
+  box-shadow: 2px 2px 20px  #2c90c6, #fff 0 -1px 2px;
+}
+
+
+p:hover {
+  text-shadow: 2px 2px 20px  #2c90c6, #fff 0 -1px 2px;
+}
