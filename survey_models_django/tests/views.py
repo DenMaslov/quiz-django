@@ -29,11 +29,12 @@ class TestSessionView(DetailView):
         instance = Testrun.objects.create(test=test, user=self.get_user(request))
         for question in test.questions.all():
             answer_id = request.POST.get(str(question.id))
-            user_option = Option.objects.get(id=answer_id)
-            instance.answers.add(Answer.objects.create(user_answer=user_option,
-                                                       question=question))
-            if user_option == question.right_option:
-                points += 1
+            if answer_id != None:
+                user_option = Option.objects.get(id=answer_id)
+                instance.answers.add(Answer.objects.create(user_answer=user_option,
+                                                        question=question))
+                if user_option == question.right_option:
+                    points += 1
         instance.points = points
         instance.save()
 
@@ -58,4 +59,7 @@ class TestScoreView(LoginRequiredMixin, ListView):
     template_name = 'tests/myscores.html'
     context_object_name = 'test_sessions'
     def get_queryset(self):
-        return Testrun.objects.filter(user__id=self.request.user.id).order_by('-finished_at') 
+        return Testrun.objects.filter(user__id=self.request.user.id).order_by('-finished_at')
+    ordering = []
+        
+    
