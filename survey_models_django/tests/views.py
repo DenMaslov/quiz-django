@@ -1,8 +1,7 @@
-from django.contrib.auth.models import AnonymousUser
-from django.urls.base import reverse_lazy
 from .models import Answer, Option, Test, Testrun
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
-from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
+from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class TestListView(ListView):
@@ -47,11 +46,9 @@ class TestSessionView(DetailView):
 class TestSessionHistoryView(ListView):
     model = Testrun
     template_name = 'tests/history.html'
-
     def get_queryset(self):
-        return Testrun.objects.filter(test__id=self.request.resolver_match.kwargs['pk'])
-
-from django.contrib.auth.mixins import LoginRequiredMixin
+        return Testrun.objects.filter(test__id=self.request.resolver_match.kwargs['pk']).order_by('-finished_at')
+    ordering = ['-finished_at']
 
 
 class TestScoreView(LoginRequiredMixin, ListView):
@@ -61,6 +58,4 @@ class TestScoreView(LoginRequiredMixin, ListView):
     template_name = 'tests/myscores.html'
     context_object_name = 'test_sessions'
     def get_queryset(self):
-        return Testrun.objects.filter(user__id=self.request.user.id)
-        
-    
+        return Testrun.objects.filter(user__id=self.request.user.id).order_by('-finished_at') 
