@@ -60,6 +60,3 @@ class TestScoreView(LoginRequiredMixin, ListView):
     context_object_name = 'test_sessions'
     def get_queryset(self):
         return Testrun.objects.filter(user__id=self.request.user.id).order_by('-finished_at')
-    ordering = []
-        
-    
