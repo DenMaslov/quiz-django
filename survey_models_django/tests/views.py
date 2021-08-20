@@ -29,7 +29,7 @@ class TestSessionView(DetailView):
         instance = Testrun.objects.create(test=test, user=self.get_user(request))
         for question in test.questions.all():
             answer_id = request.POST.get(str(question.id))
-            if answer_id != None:
+            if answer_id is not None:
                 user_option = Option.objects.get(id=answer_id)
                 instance.answers.add(Answer.objects.create(user_answer=user_option,
                                                         question=question))
